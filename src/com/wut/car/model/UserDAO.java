@@ -20,8 +20,7 @@ public class UserDAO {
 			List<User> users=null;
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
-				
+				java.sql.Connection connection=DriverManager.getConnection("jdbc.mysql://localhost:3306/MyCar","root","root");
 				QueryRunner run = new QueryRunner();
 
 				ResultSetHandler<List<User>> h = new BeanListHandler<User>(User.class);
@@ -40,4 +39,11 @@ public class UserDAO {
 			return users;
 		}
 	}
+
+	public List<User> listAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

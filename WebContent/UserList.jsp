@@ -1,3 +1,4 @@
+<%@page import="java.awt.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><!DOCTYPE html>
 <html>
 <head>
@@ -49,16 +50,16 @@
 <!--aside nav-->
 <!--aside nav-->
 <aside class="lt_aside_nav content mCustomScrollbar">
- <h2><a href="index.html">起始页</a></h2>
+ <h2><a href="index.jsp">起始页</a></h2>
  <ul>
   <li>
    <dl>
     <dt>用户信息</dt>
     <!--当前链接则添加class:active-->
-    <dd><a href="product_list.html" class="active">用户信息列表</a></dd>
-    <dd><a href="product_detail.html">用户信息添加</a></dd>
-    <dd><a href="recycle_bin.html">用户信息删除</a></dd>
-    <dd><a href="recycle_bin.html">用户信息修改</a></dd>
+    <dd><a href="product_list.jsp" class="active">用户信息列表</a></dd>
+    <dd><a href="product_detail.jsp">用户信息添加</a></dd>
+    <dd><a href="recycle_bin.jsp">用户信息删除</a></dd>
+    <dd><a href="recycle_bin.jsp">用户信息修改</a></dd>
    </dl>
   </li>
 
@@ -69,70 +70,30 @@
 
 <section class="rt_wrap content mCustomScrollbar">
  <div class="rt_content">
-      <div class="page_title">
-       <h2 class="fl">会员列表</h2>
-       <a href="user_detail.html" class="fr top_rt_btn add_icon">添加新会员</a>
-      </div>
-      <section class="mtb">
-       <select class="select">
-        <option>会员等级</option>
-        <option>普通会员</option>
-        <option>高级会员</option>
-       </select>
-       <input type="text" class="textbox textbox_225" placeholder="输入会员号/手机/电子邮件查询..."/>
-       <input type="button" value="查询" class="group_btn"/>
-      </section>
       <table class="table">
-       <tr>
-        <th>Id</th>
-        <th>用户头像</th>
-        <th>用户账号</th>
-        <th>手机号码</th>
-        <th>电子邮件</th>
-        <th>验证</th>
-        <th>会员等级</th>
-        <th>账户余额</th>
-        <th>冻结资金</th>
-        <th>操作</th>
-       </tr>
-       <tr>
-        <td class="center">001</td>
-        <td class="center"><img src="upload/user_002.png" width="50" height="50"/></td>
-        <td>DeathGhost</td>
-        <td class="center">18300000000</td>
-        <td class="center">deathghost@sina.cn</td>
-        <td class="center"><a title="已验证" class="link_icon">&#89;</a></td>
-        <td class="center">普通会员</td>
-        <td class="center">
-         <strong class="rmb_icon">5559.00</strong>
-        </td>
-        <td class="center">
-         <strong class="rmb_icon">59.00</strong>
-        </td>
-        <td class="center">
-         <a href="user_detail.html" title="编辑" class="link_icon">&#101;</a>
-         <a href="#" title="删除" class="link_icon">&#100;</a>
-        </td>
-       </tr>
-       <tr>
-        <td class="center">002</td>
-        <td class="center"><img src="upload/user_001.png" width="50" height="50"/></td>
-        <td>DeathGhost02</td>
-        <td class="center">15800000000</td>
-        <td class="center">232650413@sina.cn</td>
-        <td class="center"><a title="未验证" class="link_icon">&#88;</a></td>
-        <td class="center">高级会员</td>
-        <td class="center">
-         <strong class="rmb_icon">199.00</strong>
-        </td>
-        <td class="center">
-         <strong class="rmb_icon">15.00</strong>
-        </td>
-        <td class="center">
-         <a href="user_detail.html" title="编辑" class="link_icon">&#101;</a>
-         <a href="#" title="删除" class="link_icon">&#100;</a>
-        </td>
-       </tr>
+      <tr>
+      <th>用户姓名</th>
+      <th>性别</th>
+      <th>年龄</th>
+      </tr>
+      <%List<User> users=(List<user>)request.getAttribute("users");
+      for(User c:users){
+      
+      
+      %>
+    
+      
+
+     <tr>
+     <td class="center"><%=c.getUSERNAME %></td>
+     <td class="center"><%=c.getSEX %></td>
+     <td class="center"><%=c.getNIANJI %></td>
+     <td class="center">
+     <td><div class="button-group"> <a class="button border-main" href="cateedit.html"><span class="icon-edit"></span> 修改</a>
+                                   <a class="button border-red" href="javascript:void(0)" onclick="return del(1,2)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+     </td>
+      </tr>
+      <%}%>
       </table>
       <aside class="paging">
        <a>第一页</a>
@@ -145,5 +106,10 @@
       </aside>
  </div>
 </section>
+<%  if(request.getAttribute("deleteResult")!=null){
+	
+}
+
+%>
 </body>
 </html>

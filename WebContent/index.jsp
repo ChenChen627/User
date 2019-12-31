@@ -55,10 +55,10 @@
    <dl>
     <dt>汽车</dt>
     <!--当前链接则添加class:active-->
-    <dd><a href="product_list.html" class="active">汽车列表</a></dd>
-    <dd><a href="product_detail.html">汽车详情</a></dd>
-      <dd><a href="product_detail.html">删除汽车</a></dd>
-        <dd><a href="product_detail.html">增加汽车详情</a></dd>
+    <dd><a href="product_list.jsp" class="active">汽车列表</a></dd>
+    <dd><a href="product_detailjsp">汽车详情</a></dd>
+      <dd><a href="product_detail.jsp">删除汽车</a></dd>
+        <dd><a href="product_detail.jsp">增加汽车详情</a></dd>
    </dl>
   </li>
   <li>

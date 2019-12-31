@@ -1,5 +1,6 @@
 package com.wut.car.control;
 
+import java.util.List;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -8,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 import com.wut.car.model.UserDAO;
+import com.wut.car.model.User;
 
 /**
  * Servlet implementation class UserServlet
@@ -31,11 +32,26 @@ public class UserServlet extends HttpServlet {
 				System.out.println("查询显示有的后台记录");
 				List<User> users=dao.listAll();
 				System.out.println(users.size());
+				request.setAttribute("users",users);
+				request.getRequestDispatcher("UserList.jsp").forward(request,response);
 				break;
 			}
 			case"add":
 			{
 				System.out.println("添加用户的方法");
+				String USERNAME =request.getParameter("USERNAME");
+				String SEX =request.getParameter("SEX");
+				String NIANJI =request.getParameter("NIANJI");
+				
+				
+				User user = new User();
+				user.setUsername(USERNAME);
+				
+				
+				
+				
+				
+				
 				break;
 			}
 			case"delete":
